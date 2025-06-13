@@ -1,18 +1,5 @@
-<header>
-  <div class="site-branding">
-    <img src="assets/img/logo.png" alt="Los Juegos de Ramona Logo" class="site-logo">
-    <h1>{{ pageTitle }}</h1> </div>
-  <p>{{ pageSlogan }}</p> </header>
+<app-header [pageTitle]="pageTitle" [pageSlogan]="pageSlogan"></app-header>
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<app-footer></app-footer> 
 
-<nav>
-  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
-  <a routerLink="/party" routerLinkActive="active">Juegos Party</a>
-  <a routerLink="/cartas" routerLinkActive="active">TCG</a>
-  <a routerLink="/rol" routerLinkActive="active">Juegos de Rol</a>
-  <a routerLink="/wargames" routerLinkActive="active">Wargames</a>
-  <a routerLink="/registro" routerLinkActive="active">Registro</a>
-</nav>
-
-<router-outlet></router-outlet> <footer>
-  <p>&copy; 2025 Los Juegos de Ramona. Todos los derechos reservados.</p>
-</footer>

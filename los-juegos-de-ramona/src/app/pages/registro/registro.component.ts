@@ -1,73 +1,77 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
-import { CommonModule } from '@angular/common'; // Necesario para *ngIf
-import { ReactiveFormsModule } from '@angular/forms'; // Necesario para formularios reactivos
-import { ActivatedRoute, Router } from '@angular/router'; // Para la navegación, aunque no se usa directamente aquí todavía
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
-  standalone: true, // Indica que es un componente standalone en Angular 19
-  imports: [CommonModule, ReactiveFormsModule], // Importa los módulos necesarios
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css'] // Si tienes estilos específicos para este componente
+  styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit, OnDestroy {
-  registroForm!: FormGroup; // Declaramos el FormGroup
+  registroForm!: FormGroup;
   passwordFieldType: string = 'password';
   confirmPasswordFieldType: string = 'password';
   formMessage: string = '';
   formMessageSuccess: boolean = false;
 
-  private footerElement: HTMLElement | null = null; // Para la referencia al footer
-  private originalFooterColor: string = ''; // Para guardar el color original del footer
+  private footerElement: HTMLElement | null = null;
+  private originalFooterColor: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router) { } // Inyectamos FormBuilder
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
-    // Inicializar el formulario reactivo con sus validadores
     this.registroForm = this.fb.group({
       fullName: ['', Validators.required],
       username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [
         Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(18),
-        Validators.pattern(/^(?=.*\d)(?=.*[A-Z]).{6,18}$/) // Al menos un número y una mayúscula
+        Validators.minLength(8), // Al menos 8 caracteres
+        // Al menos un número, al menos un carácter especial, al menos una mayúscula, al menos una minúscula
+        // y entre 8 y 18 caracteres.
+        // He ajustado la regex para que pida al menos un número y un carácter especial, y mínimo 8 caracteres.
+        Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{8,18}$/)
       ]],
       confirmPassword: ['', Validators.required],
-      dob: ['', [Validators.required, this.minAgeValidator(13)]], // Validador personalizado para la edad
-      address: [''] // Campo opcional
-    }, { validators: this.passwordMatchValidator }); // Validador a nivel de grupo para que las contraseñas coincidan
+      dob: ['', [Validators.required, this.minAgeValidator(13)]],
+      address: ['']
+    }, { validators: this.passwordMatchValidator });
 
     // Obtener referencia al footer y guardar su color original
     this.footerElement = document.getElementById('main-footer');
     if (this.footerElement) {
-      this.originalFooterColor = this.footerElement.style.backgroundColor; // Guarda el color inline si existe
-      // O si el color viene del CSS, podrías necesitar una forma más robusta de obtenerlo
-      // this.originalFooterColor = getComputedStyle(this.footerElement).backgroundColor;
+      // Usar getComputedStyle para obtener el color real del CSS
+      this.originalFooterColor = getComputedStyle(this.footerElement).backgroundColor;
     }
 
-    // Añadir el listener para el scroll (manipulación directa del DOM)
+    // Añadir el listener para el scroll
     window.addEventListener('scroll', this.handleScroll);
-
-    // Lógica para añadir mensaje de bienvenida al header (si es un componente header dinámico)
-    // Para Angular, esto sería mejor manejado en el HeaderComponent mismo con Inputs o un Servicio
-    // Si realmente lo quieres aquí, tendrías que acceder al header a través del DOM o ViewChild,
-    // pero no es la forma "Angular" de hacerlo.
-    // Asumiendo que el `site-branding` está dentro del `HeaderComponent`, no lo haríamos desde aquí.
   }
 
   ngOnDestroy(): void {
-    // Limpiar el listener del scroll cuando el componente se destruye para evitar fugas de memoria
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  // Validador personalizado para la edad mínima
+  // --- Getters para acceso fácil en el HTML ---
+  get fullName() { return this.registroForm.get('fullName'); }
+  get username() { return this.registroForm.get('username'); }
+  get email() { return this.registroForm.get('email'); }
+  get password() { return this.registroForm.get('password'); }
+  get confirmPassword() { return this.registroForm.get('confirmPassword'); }
+  get dob() { return this.registroForm.get('dob'); }
+
+
+  // --- Validadores Personalizados ---
+
+  // Validador para la edad mínima
   minAgeValidator(minAge: number): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
       if (!control.value) {
-        return null; // No validar si el campo está vacío, Validators.required ya lo manejará
+        return null;
       }
       const dob = new Date(control.value);
       const today = new Date();
@@ -85,18 +89,24 @@ export class RegistroComponent implements OnInit, OnDestroy {
     const password = control.get('password');
     const confirmPassword = control.get('confirmPassword');
 
-    if (password && confirmPassword && password.value !== confirmPassword.value) {
-      // Establece el error en 'confirmPassword' si no coinciden
-      confirmPassword.setErrors({ mismatch: true });
-      return { passwordMismatch: true }; // Error a nivel de FormGroup
-    } else if (confirmPassword && confirmPassword.hasError('mismatch')) {
-      // Si coinciden, limpia el error de 'mismatch' del confirmPassword
-      confirmPassword.setErrors(null);
+    // Si los controles no existen o las contraseñas coinciden, no hay error.
+    if (!password || !confirmPassword || password.value === confirmPassword.value) {
+      // Si antes había un error 'mismatch' en confirmPassword, lo limpiamos ahora.
+      if (confirmPassword && confirmPassword.hasError('mismatch')) {
+        // Asegúrate de que el control esté marcado como touched/dirty para que la interfaz se actualice
+        confirmPassword.setErrors(null);
+      }
+      return null;
     }
-    return null;
+
+    // Si las contraseñas no coinciden, establece el error 'mismatch' en 'confirmPassword'
+    // Esto asegura que el mensaje de error se muestre debajo de 'Confirmar Contraseña'.
+    confirmPassword.setErrors({ mismatch: true });
+    // Y devuelve un error a nivel de grupo si lo necesitas para la lógica global del formulario.
+    return { passwordMismatch: true };
   }
 
-  // Función para alternar la visibilidad de la contraseña
+  // --- Funciones para la visibilidad de la contraseña ---
   togglePasswordVisibility(field: string): void {
     if (field === 'password') {
       this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
@@ -105,67 +115,72 @@ export class RegistroComponent implements OnInit, OnDestroy {
     }
   }
 
-  // Función para actualizar el color del footer (similar a la del script original)
+  // --- Funciones para el color del footer (manteniendo la lógica en AppComponent es más coherente) ---
+  // Si decidimos mover la lógica del footer al FooterComponent, estas funciones
+  // deberían ir en FooterComponent y emitir un evento si App necesita saber el estado.
   updateFooterColor(isValid: boolean): void {
     if (this.footerElement) {
-      this.footerElement.style.backgroundColor = isValid ? '#27ae60' : '#e74c3c';
+      this.footerElement.style.backgroundColor = isValid ? '#27ae60' : '#e74c3c'; // Verde para válido, Rojo para inválido
     }
   }
 
-  // Función para restablecer el color del footer
   resetFooterColor(): void {
     if (this.footerElement) {
-      this.footerElement.style.backgroundColor = this.originalFooterColor; // Restaura el color original
+      this.footerElement.style.backgroundColor = this.originalFooterColor;
     }
   }
 
-  // Manejador del evento de scroll (usando una arrow function para mantener 'this' contexto)
+  // Manejador del evento de scroll
   handleScroll = (): void => {
     if (this.footerElement) {
       if (window.scrollY > 150) {
-        this.footerElement.style.backgroundColor = '#4A90E2';
+        this.footerElement.style.backgroundColor = '#4A90E2'; // Color azul al hacer scroll
         this.footerElement.style.transition = 'background-color 0.5s ease-in-out';
       } else {
-        this.resetFooterColor(); // Vuelve al color original
+        this.resetFooterColor();
       }
     }
   };
 
-  // Función que se ejecuta al enviar el formulario
+  // --- Funciones del Formulario ---
   onSubmit(): void {
-    // Marca todos los controles como 'touched' para que se muestren los mensajes de validación
-    this.registroForm.markAllAsTouched();
+    this.formMessage = ''; // Limpiar mensaje anterior
+    this.registroForm.markAllAsTouched(); // Asegura que todos los errores sean visibles
 
     if (this.registroForm.valid) {
       console.log('Formulario válido:', this.registroForm.value);
       this.formMessage = '¡Registro exitoso! Tus datos han sido enviados.';
       this.formMessageSuccess = true;
-      this.updateFooterColor(true);
+      this.updateFooterColor(true); // Actualiza color del footer a éxito
 
       setTimeout(() => {
-        this.registroForm.reset(); // Restablece el formulario
+        this.registroForm.reset(); // Restablece el formulario a su estado inicial
         this.formMessage = '';
         this.formMessageSuccess = false;
-        this.resetFooterColor();
-        // Angular maneja automáticamente la eliminación de clases is-valid/is-invalid al resetear.
-        // No necesitas iterar sobre los inputs como en JS vanilla.
+        this.resetFooterColor(); // Restablece el color del footer
+        // Los errores se limpian automáticamente al resetear el formulario reactivo
       }, 1500);
 
     } else {
       console.log('Formulario inválido');
-      this.formMessage = 'Por favor, llena la información solicitada correctamente.';
+      this.formMessage = 'Por favor, corrige los errores en el formulario.';
       this.formMessageSuccess = false;
-      this.updateFooterColor(false);
+      this.updateFooterColor(false); // Actualiza color del footer a error
+      // Opcional: enfocar el primer campo inválido para mejorar la UX
+      // const firstInvalidControl = Object.keys(this.registroForm.controls).find(name => this.registroForm.controls[name].invalid);
+      // if (firstInvalidControl) {
+      //   document.getElementById(firstInvalidControl)?.focus();
+      // }
     }
   }
 
-  // Función que se ejecuta al resetear el formulario
   onReset(): void {
     this.registroForm.reset();
     this.formMessage = '';
     this.formMessageSuccess = false;
     this.resetFooterColor();
-    // Angular maneja automáticamente la eliminación de clases is-valid/is-invalid al resetear.
-    // No necesitas iterar sobre los inputs como en JS vanilla.
+    // Resetear también los tipos de campo de contraseña si se desea que vuelvan a ser 'password'
+    this.passwordFieldType = 'password';
+    this.confirmPasswordFieldType = 'password';
   }
 }
