@@ -30,11 +30,8 @@ export class RegistroComponent implements OnInit, OnDestroy {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [
         Validators.required,
-        Validators.minLength(8), // Al menos 8 caracteres
-        // Al menos un número, al menos un carácter especial, al menos una mayúscula, al menos una minúscula
-        // y entre 8 y 18 caracteres.
-        // He ajustado la regex para que pida al menos un número y un carácter especial, y mínimo 8 caracteres.
-        Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{8,18}$/)
+        Validators.minLength(6),
+        Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{6,18}$/)
       ]],
       confirmPassword: ['', Validators.required],
       dob: ['', [Validators.required, this.minAgeValidator(13)]],
