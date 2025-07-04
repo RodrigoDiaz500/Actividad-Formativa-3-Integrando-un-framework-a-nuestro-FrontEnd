@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Para directivas comunes
+import { CommonModule } from '@angular/common'; 
 
 @Component({
-  selector: 'app-header', // Este es el selector que usarás
+  selector: 'app-header', 
   standalone: true,
   imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  @Input() pageTitle: string = ''; // Recibe el título del padre
-  @Input() pageSlogan: string = ''; // Recibe el eslogan del padre
+  @Input() pageTitle: string = ''; 
+  @Input() pageSlogan: string = ''; 
 }

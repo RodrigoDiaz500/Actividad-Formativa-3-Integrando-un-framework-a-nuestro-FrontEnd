@@ -1,4 +1,4 @@
-/* src/app/components/game-card/game-card.component.css */
+
 
 .juego-ficha {
   border: 1px solid #dee2e6;
@@ -17,14 +17,14 @@
 
 .juego-ficha img {
   width: 100%;
-  height: 150px; /* Puedes ajustar esta altura si lo deseas */
-  object-fit: contain; /* ¡CAMBIA ESTO A 'contain'! */
+  height: 150px; 
+  object-fit: contain; 
   border-bottom: 1px solid #dee2e6;
 }
 
 .juego-ficha .card-body {
-  padding: 0.8rem; /* Ligeramente menos padding */
-  /* ... (resto de estilos) ... */
+  padding: 0.8rem; 
+
 }
 
 .juego-ficha h3 {

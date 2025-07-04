@@ -1,5 +1,3 @@
-// src/app/pages/home/home.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoryGridComponent } from '../../components/category-grid/category-grid.component'; // ¡IMPORTAR AQUÍ!
@@ -9,7 +7,7 @@ import { CategoryGridComponent } from '../../components/category-grid/category-g
   standalone: true,
   imports: [
     CommonModule,
-    CategoryGridComponent // ¡IMPORTAR EL COMPONENTE DE CUADRÍCULA!
+    CategoryGridComponent 
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']

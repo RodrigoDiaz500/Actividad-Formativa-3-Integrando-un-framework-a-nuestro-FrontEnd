@@ -4,7 +4,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { TCGComponent } from './pages/tcg/tcg.component';
 import { PartyComponent } from './pages/party/party.component';
 import { RolComponent } from './pages/rol/rol.component';
-import { WargamesComponent } from './pages/wargames/wargames.component'; // Importa el WargamesComponent
+import { WargamesComponent } from './pages/wargames/wargames.component'; 
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Los Juegos de Ramona', slogan: 'Tu aventura en el mundo de los juegos de mesa comienza aquí.' } },

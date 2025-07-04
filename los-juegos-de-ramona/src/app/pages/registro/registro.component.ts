@@ -38,14 +38,12 @@ export class RegistroComponent implements OnInit, OnDestroy {
       address: ['']
     }, { validators: this.passwordMatchValidator });
 
-    // Obtener referencia al footer y guardar su color original
+    
     this.footerElement = document.getElementById('main-footer');
     if (this.footerElement) {
-      // Usar getComputedStyle para obtener el color real del CSS
       this.originalFooterColor = getComputedStyle(this.footerElement).backgroundColor;
     }
 
-    // Añadir el listener para el scroll
     window.addEventListener('scroll', this.handleScroll);
   }
 
@@ -64,7 +62,7 @@ export class RegistroComponent implements OnInit, OnDestroy {
 
   // --- Validadores Personalizados ---
 
-  // Validador para la edad mínima
+
   minAgeValidator(minAge: number): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
       if (!control.value) {
@@ -81,25 +79,19 @@ export class RegistroComponent implements OnInit, OnDestroy {
     };
   }
 
-  // Validador a nivel de grupo para que las contraseñas coincidan
   passwordMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
     const password = control.get('password');
     const confirmPassword = control.get('confirmPassword');
 
-    // Si los controles no existen o las contraseñas coinciden, no hay error.
+
     if (!password || !confirmPassword || password.value === confirmPassword.value) {
-      // Si antes había un error 'mismatch' en confirmPassword, lo limpiamos ahora.
       if (confirmPassword && confirmPassword.hasError('mismatch')) {
-        // Asegúrate de que el control esté marcado como touched/dirty para que la interfaz se actualice
         confirmPassword.setErrors(null);
       }
       return null;
     }
 
-    // Si las contraseñas no coinciden, establece el error 'mismatch' en 'confirmPassword'
-    // Esto asegura que el mensaje de error se muestre debajo de 'Confirmar Contraseña'.
     confirmPassword.setErrors({ mismatch: true });
-    // Y devuelve un error a nivel de grupo si lo necesitas para la lógica global del formulario.
     return { passwordMismatch: true };
   }
 
@@ -112,12 +104,10 @@ export class RegistroComponent implements OnInit, OnDestroy {
     }
   }
 
-  // --- Funciones para el color del footer (manteniendo la lógica en AppComponent es más coherente) ---
-  // Si decidimos mover la lógica del footer al FooterComponent, estas funciones
-  // deberían ir en FooterComponent y emitir un evento si App necesita saber el estado.
+
   updateFooterColor(isValid: boolean): void {
     if (this.footerElement) {
-      this.footerElement.style.backgroundColor = isValid ? '#27ae60' : '#e74c3c'; // Verde para válido, Rojo para inválido
+      this.footerElement.style.backgroundColor = isValid ? '#27ae60' : '#e74c3c'; 
     }
   }
 
@@ -131,7 +121,7 @@ export class RegistroComponent implements OnInit, OnDestroy {
   handleScroll = (): void => {
     if (this.footerElement) {
       if (window.scrollY > 150) {
-        this.footerElement.style.backgroundColor = '#4A90E2'; // Color azul al hacer scroll
+        this.footerElement.style.backgroundColor = '#4A90E2'; 
         this.footerElement.style.transition = 'background-color 0.5s ease-in-out';
       } else {
         this.resetFooterColor();
@@ -141,33 +131,28 @@ export class RegistroComponent implements OnInit, OnDestroy {
 
   // --- Funciones del Formulario ---
   onSubmit(): void {
-    this.formMessage = ''; // Limpiar mensaje anterior
-    this.registroForm.markAllAsTouched(); // Asegura que todos los errores sean visibles
+    this.formMessage = ''; 
+    this.registroForm.markAllAsTouched(); 
 
     if (this.registroForm.valid) {
       console.log('Formulario válido:', this.registroForm.value);
       this.formMessage = '¡Registro exitoso! Tus datos han sido enviados.';
       this.formMessageSuccess = true;
-      this.updateFooterColor(true); // Actualiza color del footer a éxito
+      this.updateFooterColor(true); 
 
       setTimeout(() => {
-        this.registroForm.reset(); // Restablece el formulario a su estado inicial
+        this.registroForm.reset(); 
         this.formMessage = '';
         this.formMessageSuccess = false;
-        this.resetFooterColor(); // Restablece el color del footer
-        // Los errores se limpian automáticamente al resetear el formulario reactivo
+        this.resetFooterColor(); 
       }, 1500);
 
     } else {
       console.log('Formulario inválido');
       this.formMessage = 'Por favor, corrige los errores en el formulario.';
       this.formMessageSuccess = false;
-      this.updateFooterColor(false); // Actualiza color del footer a error
-      // Opcional: enfocar el primer campo inválido para mejorar la UX
-      // const firstInvalidControl = Object.keys(this.registroForm.controls).find(name => this.registroForm.controls[name].invalid);
-      // if (firstInvalidControl) {
-      //   document.getElementById(firstInvalidControl)?.focus();
-      // }
+      this.updateFooterColor(false); 
+
     }
   }
 
@@ -176,7 +161,6 @@ export class RegistroComponent implements OnInit, OnDestroy {
     this.formMessage = '';
     this.formMessageSuccess = false;
     this.resetFooterColor();
-    // Resetear también los tipos de campo de contraseña si se desea que vuelvan a ser 'password'
     this.passwordFieldType = 'password';
     this.confirmPasswordFieldType = 'password';
   }
