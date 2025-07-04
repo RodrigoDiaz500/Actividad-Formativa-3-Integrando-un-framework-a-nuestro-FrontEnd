@@ -1,0 +1,75 @@
+/* src/app/components/game-card/game-card.component.css */
+
+.juego-ficha {
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.juego-ficha:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.juego-ficha img {
+  width: 100%;
+  height: 150px; /* Puedes ajustar esta altura si lo deseas */
+  object-fit: contain; /* ¡CAMBIA ESTO A 'contain'! */
+  border-bottom: 1px solid #dee2e6;
+}
+
+.juego-ficha .card-body {
+  padding: 0.8rem; /* Ligeramente menos padding */
+  /* ... (resto de estilos) ... */
+}
+
+.juego-ficha h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #343a40;
+  font-weight: bold;
+}
+
+.juego-ficha .descripcion {
+  font-size: 0.9rem;
+  color: #6c757d;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.juego-ficha .precio {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.juego-ficha .descuento {
+  font-size: 0.85rem;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.juego-ficha .btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.juego-ficha .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.juego-ficha .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}

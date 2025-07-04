@@ -1,27 +1,15 @@
 <main class="container my-5 flex-grow-1">
-  <section class="listado-juegos">
-    <article class="juego-ficha">
-      <img src="assets/Dungeons-Dragons-Kit-Esencial.jpg" alt="Dungeons and Dragons">
-      <h3>Dungeons and Dragons - Kit Esencial</h3>
-      <p class="descripcion">Un set ideal para iniciarse en Dungeons & Dragons, con todo lo necesario para comenzar tu primera aventura de rol épica.</p>
-      <p class="precio">Precio: $23.990</p>
-      <p class="descuento">¡Con descuento!</p>
-    </article>
+  <section class="hero-section text-center mb-5">
+    <h2>Juegos de Rol</h2>
+    <p class="lead">Interpreta personajes, crea historias y vive aventuras épicas.</p>
+  </section>
 
-    <article class="juego-ficha">
-      <img src="assets/pathfinder.jpg" alt="Pathfinder">
-      <h3>Pathfinder - Guía del Jugador</h3>
-      <p class="descripcion">El Manual del Jugador de Pathfinder ofrece reglas detalladas y opciones de personaje para vivir aventuras llenas de fantasía y estrategia.</p>
-      <p class="precio">Precio: $39.990</p>
-      <p class="descuento">Sin descuento</p>
-    </article>
-
-    <article class="juego-ficha">
-      <img src="assets/callofcthulhu.jpg" alt="Call of Cthulhu">
-      <h3>Call of Cthulhu - Caja de Inicio</h3>
-      <p class="descripcion">Explora horrores cósmicos y misterios sobrenaturales con el Manual del Jugador de La Llamada de Cthulhu, el juego de rol basado en la obra de H.P. Lovecraft.</p>
-      <p class="precio">Precio: $44.990</p>
-      <p class="descuento">¡Con descuento!</p>
-    </article>
+  <section class="listado-juegos row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center" *ngIf="juegosRol$ | async as juegos">
+    <div class="col" *ngFor="let juego of juegos">
+      <app-game-card [juego]="juego"></app-game-card>
+    </div>
+    <div *ngIf="juegos.length === 0" class="col-12">
+      <p>No hay juegos de Rol disponibles en este momento.</p>
+    </div>
   </section>
 </main>

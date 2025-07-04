@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1,
+    "nombre": "Catan",
+    "categoria": "Juegos Party",
+    "descripcion": "Un clásico juego de estrategia y negociación donde los jugadores recolectan recursos y construyen asentamientos para dominar la isla de Catan.",
+    "precio": 35990,
+    "precioFormateado": "$35.990",
+    "imagenUrl": "assets/img/catan.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Exploding Kittens Party Pack",
+    "categoria": "Juegos Party",
+    "descripcion": "Exploding Kittens es un divertido y explosivo juego de cartas donde debes evitar ser eliminado por un gatito explosivo.",
+    "precio": 29990,
+    "precioFormateado": "$29.990",
+    "imagenUrl": "assets/img/EXPLODING-KITTENS-PARTY-PACK.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Mala Leche",
+    "categoria": "Juegos Party",
+    "descripcion": "Mala Leche es un juego irreverente y políticamente incorrecto, ideal para romper el hielo entre amigos con mucho humor negro.",
+    "precio": 19990,
+    "precioFormateado": "19.990",
+    "imagenUrl": "assets/img/mala leche.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Catfe",
+    "categoria": "Juegos Party",
+    "descripcion": "Moka está buscando a los mejores Chefs para su café temático gatuno. Deberás cocinar la mayor cantidad de postres posibles.",
+    "precio": 17000,
+    "precioFormateado": "$17.000",
+    "imagenUrl": "assets/img/catfe.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Dixit",
+    "categoria": "Juegos Party",
+    "descripcion": "Un juego de cartas imaginativo donde cada imagen cuenta una historia. Adivina la carta del narrador para ganar.",
+    "precio": 30000,
+    "precioFormateado": "$30.000",
+    "imagenUrl": "assets/img/dixit.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Código Secreto",
+    "categoria": "Juegos Party",
+    "descripcion": "Dos equipos compiten por ser los primeros en contactar a todos sus agentes, evitando al asesino, usando pistas de una sola palabra.",
+    "precio": 25000,
+    "precioFormateado": "$25.000",
+    "imagenUrl": "assets/img/codigosecreto1.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Uno",
+    "categoria": "Juegos Party",
+    "descripcion": "El clásico juego de cartas donde los jugadores intentan deshacerse de todas sus cartas haciendo coincidir colores o números.",
+    "precio": 10000,
+    "precioFormateado": "$10.000",
+    "imagenUrl": "assets/img/uno.png"
+  },
+  {
+    "id": 8,
+    "nombre": "Jenga",
+    "categoria": "Juegos Party",
+    "descripcion": "Un juego de habilidad física donde los jugadores retiran bloques de una torre y los colocan encima, intentando que no se caiga.",
+    "precio": 18000,
+    "precioFormateado": "$18.000",
+    "imagenUrl": "assets/img/jenga.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Sushi Go!",
+    "categoria": "Juegos Party",
+    "descripcion": "Un rápido y divertido juego de cartas donde intentas hacer la mejor combinación de platos de sushi.",
+    "precio": 15000,
+    "precioFormateado": "$15.000",
+    "imagenUrl": "assets/img/sushigo.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Aventureros al Tren",
+    "categoria": "Juegos Party",
+    "descripcion": "Construye rutas de tren a través de Norteamérica, conectando ciudades y completando tus billetes de destino.",
+    "precio": 40000,
+    "precioFormateado": "$40.000",
+    "imagenUrl": "assets/img/Aventureros_al_tren_3D.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "Magic: The Gathering",
+    "categoria": "TCG",
+    "descripcion": "El juego de cartas coleccionables original. Construye tu mazo y desafía a tus oponentes en duelos estratégicos.",
+    "precio": 59900,
+    "precioFormateado": "$59.900",
+    "imagenUrl": "assets/img/magic.png"
+  },
+  {
+    "id": 12,
+    "nombre": "Pokémon TCG",
+    "categoria": "TCG",
+    "descripcion": "Colecciona, intercambia y lucha con tus Pokémon favoritos en este emocionante juego de cartas.",
+    "precio": 13990,
+    "precioFormateado": "$13.990",
+    "imagenUrl": "assets/img/pokemontcg.jpg"
+  },
+  {
+    "id": 13,
+    "nombre": "Star Wars Unlimited",
+    "categoria": "TCG",
+    "descripcion": "Star Wars Unlimited es un TCG competitivo y rápido que combina personajes icónicos de Star Wars con mecánicas accesibles y profundas.",
+    "precio": 34990,
+    "precioFormateado": "$34.990",
+    "imagenUrl": "assets/img/starwarsunlimited.jpg"
+  },
+  {
+    "id": 14,
+    "nombre": "Yu-Gi-Oh! TCG",
+    "categoria": "TCG",
+    "descripcion": "Un juego de cartas donde los duelistas invocan monstruos, activan hechizos y trampas para reducir los puntos de vida del oponente.",
+    "precio": 10000,
+    "precioFormateado": "$10.000",
+    "imagenUrl": "assets/img/yugioh.jpg"
+  },
+  {
+    "id": 15,
+    "nombre": "Digimon Card Game",
+    "categoria": "TCG",
+    "descripcion": "Basado en la popular franquicia Digimon, este TCG te permite digievolucionar a tus criaturas para derrotar a tus rivales.",
+    "precio": 12000,
+    "precioFormateado": "$12.000",
+    "imagenUrl": "assets/img/digimontcg.jpg"
+  },
+  {
+    "id": 16,
+    "nombre": "Flesh and Blood TCG",
+    "categoria": "TCG",
+    "descripcion": "Un TCG centrado en el combate cuerpo a cuerpo y la gestión de arsenal, donde cada carta tiene múltiples usos.",
+    "precio": 20000,
+    "precioFormateado": "$20.000",
+    "imagenUrl": "assets/img/flesh.jpg"
+  },
+  {
+    "id": 17,
+    "nombre": "KeyForge",
+    "categoria": "TCG",
+    "descripcion": "El primer Unique Deck Game, donde cada mazo es único y no hay dos iguales, ofreciendo una experiencia de juego asimétrica.",
+    "precio": 28000,
+    "precioFormateado": "$28.000",
+    "imagenUrl": "assets/img/keyforge.png"
+  },
+  {
+    "id": 18,
+    "nombre": "Dragon Ball Super Card Game",
+    "categoria": "TCG",
+    "descripcion": "Lucha con tus personajes favoritos de Dragon Ball en este TCG que recrea batallas épicas del anime.",
+    "precio": 14000,
+    "precioFormateado": "$14.000",
+    "imagenUrl": "assets/img/dragonball.jpg"
+  },
+  {
+    "id": 19,
+    "nombre": "Final Fantasy TCG",
+    "categoria": "TCG",
+    "descripcion": "Un TCG basado en la aclamada serie de videojuegos Final Fantasy, con personajes y habilidades icónicas.",
+    "precio": 16000,
+    "precioFormateado": "$16.000",
+    "imagenUrl": "assets/img/fftcg.jpg"
+  },
+  {
+    "id": 20,
+    "nombre": "Weiss Schwarz",
+    "categoria": "TCG",
+    "descripcion": "Un TCG que reúne personajes de varios animes y videojuegos japoneses, permitiendo construir mazos temáticos.",
+    "precio": 18000,
+    "precioFormateado": "$18.000",
+    "imagenUrl": "assets/img/WeissSchwarz.jpg"
+  },
+  {
+    "id": 21,
+    "nombre": "Dungeons and Dragons - Kit Esencial",
+    "categoria": "Juegos de Rol",
+    "descripcion": "Un set ideal para iniciarse en Dungeons & Dragons, con todo lo necesario para comenzar tu primera aventura de rol épica.",
+    "precio": 23000,
+    "precioFormateado": "$23.000",
+    "imagenUrl": "assets/img/Dungeons-Dragons-Kit-Esencial.jpg"
+  },
+  {
+    "id": 22,
+    "nombre": "Pathfinder - Guía del Jugador",
+    "categoria": "Juegos de Rol",
+    "descripcion": "El Manual del Jugador de Pathfinder ofrece reglas detalladas y opciones de personaje para vivir aventuras llenas de fantasía y estrategia.",
+    "precio": 39990,
+    "precioFormateado": "$39.990",
+    "imagenUrl": "assets/img/pathfinder.jpg"
+  },
+  {
+    "id": 23,
+    "nombre": "Call of Cthulhu - Caja de Inicio",
+    "categoria": "Juegos de Rol",
+    "descripcion": "Explora horrores cósmicos y misterios sobrenaturales con la Caja de Inicio de La Llamada de Cthulhu.",
+    "precio": 44990,
+    "precioFormateado": "$44.990",
+    "imagenUrl": "assets/img/callofcthulhu.jpg"
+  },
+  {
+    "id": 24,
+    "nombre": "Vampiro: La Mascarada",
+    "categoria": "Juegos de Rol",
+    "descripcion": "Conviértete en un vástago de la noche en este oscuro juego de rol de horror personal y política vampírica.",
+    "precio": 35000,
+    "precioFormateado": "$35.000",
+    "imagenUrl": "assets/img/V5-Edicion-de-Bolsillo.jpg"
+  },
+  {
+    "id": 25,
+    "nombre": "Cyberpunk Red",
+    "categoria": "Juegos de Rol",
+    "descripcion": "Sumérgete en un futuro distópico lleno de tecnología, corporaciones y peligros en este juego de rol de ciencia ficción.",
+    "precio": 40000,
+    "precioFormateado": "$40.000",
+    "imagenUrl": "assets/img/cyberpunk-red-kit-de-inicio.jpg"
+  },
+  {
+    "id": 26,
+    "nombre": "La Leyenda de los Cinco Anillos",
+    "categoria": "Juegos de Rol",
+    "descripcion": "Un juego de rol ambientado en el místico imperio de Rokugan, donde el honor y la espada definen tu destino.",
+    "precio": 38000,
+    "precioFormateado": "$38.000",
+    "imagenUrl": "assets/img/La-Leyenda-de-los-Cinco-Anillos-El-juego-de-rol-caja-de-inicio.jpg"
+  },
+  {
+    "id": 27,
+    "nombre": "Shadowrun",
+    "categoria": "Juegos de Rol",
+    "descripcion": "Combina magia y tecnología en un futuro cyberpunk lleno de intriga corporativa y criaturas míticas.",
+    "precio": 42000,
+    "precioFormateado": "$42.000",
+    "imagenUrl": "assets/img/shadowrun.jpg"
+  },
+  {
+    "id": 28,
+    "nombre": "El Anillo Único",
+    "categoria": "Juegos de Rol",
+    "descripcion": "Vive aventuras en la Tierra Media, explorando las tierras salvajes y enfrentando las sombras que se ciernen sobre el mundo.",
+    "precio": 37000,
+    "precioFormateado": "$37.000",
+    "imagenUrl": "assets/img/anillounico.jpg"
+  },
+  {
+    "id": 29,
+    "nombre": "Starfinder",
+    "categoria": "Juegos de Rol",
+    "descripcion": "Un juego de rol de ciencia ficción y fantasía que te lleva a explorar galaxias lejanas y mundos alienígenas.",
+    "precio": 36000,
+    "precioFormateado": "$36.000",
+    "imagenUrl": "assets/img/starfinder-caja-de-iniciacion.jpg"
+  },
+  {
+    "id": 30,
+    "nombre": "Mutant: Year Zero",
+    "categoria": "Juegos de Rol",
+    "descripcion": "Sobrevive en un mundo post-apocalíptico, explorando ruinas y construyendo una nueva sociedad con tus mutantes.",
+    "precio": 34000,
+    "precioFormateado": "$34.000",
+    "imagenUrl": "assets/img/mutant_year_z_mockup.jpg"
+  },
+  {
+    "id": 31,
+    "nombre": "Warhammer 40k - Starter Set",
+    "categoria": "Wargames",
+    "descripcion": "El set de inicio de Warhammer 40K te sumerge en un universo futurista lleno de batallas épicas entre ejércitos galácticos.",
+    "precio": 117990,
+    "precioFormateado": "$117.990",
+    "imagenUrl": "assets/img/warhammer 40k.jpg"
+  },
+  {
+    "id": 32,
+    "nombre": "Star Wars Legion - Core Set",
+    "categoria": "Wargames",
+    "descripcion": "Star Wars Legion es un juego de miniaturas donde lideras las fuerzas del Imperio o de la Rebelión en intensas batallas tácticas.",
+    "precio": 109990,
+    "precioFormateado": "$109.990",
+    "imagenUrl": "assets/img/starwarslegion.png"
+  },
+  {
+    "id": 33,
+    "nombre": "Marvel Crisis Protocol - Core Set",
+    "categoria": "Wargames",
+    "descripcion": "Marvel Crisis Protocol te permite recrear combates estratégicos entre tus superhéroes y villanos favoritos del universo Marvel.",
+    "precio": 85000,
+    "precioFormateado": "$85.000",
+    "imagenUrl": "assets/img/marvel-crisis-protocol.jpg"
+  },
+  {
+    "id": 34,
+    "nombre": "Age of Sigmar - Starter Set",
+    "categoria": "Wargames",
+    "descripcion": "Adéntrate en el universo de fantasía de Warhammer Age of Sigmar con este set de inicio, ideal para batallas épicas.",
+    "precio": 90000,
+    "precioFormateado": "$90.000",
+    "imagenUrl": "assets/img/AgeofSigmarStarterSet.jpg"
+  },
+  {
+    "id": 35,
+    "nombre": "Bolt Action - Starter Set",
+    "categoria": "Wargames",
+    "descripcion": "Lidera tus tropas en los campos de batalla de la Segunda Guerra Mundial en este wargame de miniaturas históricas.",
+    "precio": 75000,
+    "precioFormateado": "$75.000",
+    "imagenUrl": "assets/img/Bolt-Action.jpg"
+  },
+  {
+    "id": 36,
+    "nombre": "Infinity - Operation Kaldstrom",
+    "categoria": "Wargames",
+    "descripcion": "Un wargame de ciencia ficción con miniaturas de alta calidad, ambientado en un futuro ciberpunk y lleno de acción.",
+    "precio": 95000,
+    "precioFormateado": "$95.000",
+    "imagenUrl": "assets/img/Infinity - Operation Kaldstrom.jpg"
+  },
+  {
+    "id": 37,
+    "nombre": "Malifaux - Core Box",
+    "categoria": "Wargames",
+    "descripcion": "Un wargame de escaramuzas con un estilo gótico y steampunk, donde la estrategia y la narrativa son clave.",
+    "precio": 65000,
+    "precioFormateado": "$65.000",
+    "imagenUrl": "assets/img/maifaux.jpg"
+  },
+  {
+    "id": 38,
+    "nombre": "Warmachine - Two Player Battle Box",
+    "categoria": "Wargames",
+    "descripcion": "Dirige poderosos warjacks y hechiceros en batallas tácticas de fantasía steampunk.",
+    "precio": 80000,
+    "precioFormateado": "$80.000",
+    "imagenUrl": "assets/img/Warmachine - Two Player Battle Box.jpg"
+  },
+  {
+    "id": 39,
+    "nombre": "Kings of War - Two Player Starter",
+    "categoria": "Wargames",
+    "descripcion": "Un wargame de fantasía a gran escala con ejércitos de miniaturas, ideal para batallas masivas y rápidas.",
+    "precio": 70000,
+    "precioFormateado": "$70.000",
+    "imagenUrl": "assets/img/kings-of-war-war-in-holds-2-player-starter-set.jpg"
+  },
+  {
+    "id": 40,
+    "nombre": "Flames of War - Starter Set",
+    "categoria": "Wargames",
+    "descripcion": "Recrea batallas de la Segunda Guerra Mundial con tanques y tropas a escala, un wargame táctico y detallado.",
+    "precio": 88000,
+    "precioFormateado": "$88.000",
+    "imagenUrl": "assets/img/counterattack-starter-set-web.jpg"
+  }
+]
